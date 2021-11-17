@@ -26,6 +26,12 @@ eureka:
     register-with-eureka: true
     fetch-registry: true
 
+management:
+  endpoints:
+    web:
+      exposure:
+        include: hystrix.stream,info,health
+
 resilience4j.circuitbreaker:
   configs:
     default:
@@ -44,3 +50,5 @@ resilience4j.retry:
     default:
       max-attempts: 3
       waitDuration: 100
+
+  
