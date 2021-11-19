@@ -22,6 +22,13 @@ VALUES
         'true',
         'ROLE_USER'
     ),
+    (
+        4,
+        'temp',
+        '1234',
+        'true',
+        'ROLE_USER'
+    )
 ;
 
 -- password : 1234

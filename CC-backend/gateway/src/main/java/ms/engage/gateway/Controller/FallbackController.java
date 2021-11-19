@@ -9,7 +9,7 @@ public class FallbackController {
 
     @RequestMapping("/")
     public String hello() {
-        return "Hello from FallbackController";
+        return "Hello from College Connect - API Gateway Server";
     }
 
     @RequestMapping("/hello-world-fallback")
