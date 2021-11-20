@@ -1,0 +1,54 @@
+server:
+  port: 9000
+
+spring:
+  application:
+    name: API-gateway
+  cloud:
+    gateway:
+      routes:
+        - id: hello-world
+          uri: lb://HELLO-WORLD/
+          predicates:
+            - Path=/hello-world/**
+          filters:
+            - name: CircuitBreaker
+              args:
+                name: myCircuitBreaker
+                fallbackUri: /hello-world-fallback
+
+eureka:
+  instance:
+    appname: API-GATEWAY
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+    register-with-eureka: true
+    fetch-registry: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: hystrix.stream,info,health
+
+resilience4j.circuitbreaker:
+  configs:
+    default:
+      registerHealthIndicator: true
+      slidingWindowSize: 10
+      minimumNumberOfCalls: 5
+      permittedNumberOfCallsInHalfOpenState: 3
+      automaticTransitionFromOpenToHalfOpenEnabled: true
+      waitDurationInOpenState: 3s
+      failureRateThreshold: 50
+      eventConsumerBufferSize: 10
+
+
+resilience4j.retry:
+  configs:
+    default:
+      max-attempts: 3
+      waitDuration: 100
+
+  
