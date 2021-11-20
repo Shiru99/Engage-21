@@ -1,6 +1,5 @@
 package ms.engage.gateway.Authentication.model;
 
-
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
