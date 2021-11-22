@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 @RestController
-@RequestMapping("/hello-world")
+@RequestMapping("/api/hello-world")
 public class HelloWorld {
 
     @Value("${spring.application.name}")
