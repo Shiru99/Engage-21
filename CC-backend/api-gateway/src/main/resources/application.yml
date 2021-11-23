@@ -29,6 +29,15 @@ spring:
               args:
                 name: myCircuitBreaker
                 fallbackUri: /hello-world-fallback
+        - id: my-authentication-service
+          uri: lb://MY-AUTHENTICATION-SERVICE/
+          predicates:
+            - Path=/api/authenticate/**
+          filters:
+            - name: CircuitBreaker
+              args:
+                name: myCircuitBreaker
+                fallbackUri: /hello-world-fallback
 
 management:
   endpoints:

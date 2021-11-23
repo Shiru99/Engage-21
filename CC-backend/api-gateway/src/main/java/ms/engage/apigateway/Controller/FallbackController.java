@@ -17,4 +17,10 @@ public class FallbackController {
         System.out.println("Fallback method called...");
         return Mono.just("Hello-World Service is taking too long to respond or is down. Please try again later");
     }
+
+    @RequestMapping("/authentication-fallback")
+    public Mono<String> authenticationFallback() {
+        System.out.println("Fallback method called...");
+        return Mono.just("my-authentication-service is taking too long to respond or is down. Please try again later");
+    }
 }
