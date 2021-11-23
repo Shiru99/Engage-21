@@ -2,28 +2,28 @@ INSERT INTO
     cc_users (id, username, password, active, role)
 VALUES
     (
-        1,
+        0,
         'John',
         '{bcrypt}$2a$10$jBxirFzCFwYVAskGcBMINuxjxJuD/gXIWqzkkCjtRhFpkzm9H1NPO',
         'true',
         'Student'
     ),
     (
-        2,
+        1,
         'Jenny',
         '{bcrypt}$2a$10$jBxirFzCFwYVAskGcBMINuxjxJuD/gXIWqzkkCjtRhFpkzm9H1NPO',
         'true',
         'Student'
     ),
     (
-        3,
+        2,
         'James',
         '{bcrypt}$2a$10$jBxirFzCFwYVAskGcBMINuxjxJuD/gXIWqzkkCjtRhFpkzm9H1NPO',
         'true',
         'Student'
     ),
     (
-        4,
+        3,
         'temp',
         '1234',
         'true',
