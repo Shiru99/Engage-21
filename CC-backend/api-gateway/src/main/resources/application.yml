@@ -37,7 +37,7 @@ spring:
             - name: CircuitBreaker
               args:
                 name: myCircuitBreaker
-                fallbackUri: /hello-world-fallback
+                fallbackUri: /authentication-fallback
 
 management:
   endpoints:
