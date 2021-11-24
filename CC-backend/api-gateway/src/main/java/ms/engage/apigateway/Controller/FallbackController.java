@@ -4,7 +4,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import ms.engage.apigateway.Model.CCResponse;
-import reactor.core.publisher.Mono;
 
 @RestController
 public class FallbackController {
@@ -30,10 +29,17 @@ public class FallbackController {
         return ccResponse;
     }
 
-    @RequestMapping(value = "/scheduler-fallback", produces = "application/json")
-    public CCResponse schedulerFallback() {
+    @RequestMapping(value = "/scheduler-teacher-fallback", produces = "application/json")
+    public CCResponse schedulerTeacherFallback() {
         ccResponse.setStatus(false);
-        ccResponse.setStatusMessage("Class-Scheduler Service is taking too long to respond or is down. Please try again later");
+        ccResponse.setStatusMessage("Class-Scheduler for Teacher Service is taking too long to respond or is down. Please try again later");
+        return ccResponse;
+    }
+
+    @RequestMapping(value = "/scheduler-student-fallback", produces = "application/json")
+    public CCResponse schedulerStudentFallback() {
+        ccResponse.setStatus(false);
+        ccResponse.setStatusMessage("Class-Scheduler for Student Service is taking too long to respond or is down. Please try again later");
         return ccResponse;
     }
 }

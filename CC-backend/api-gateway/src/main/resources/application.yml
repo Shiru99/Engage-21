@@ -38,15 +38,24 @@ spring:
               args:
                 name: myCircuitBreaker
                 fallbackUri: /authentication-fallback
-        - id: class-scheduler
-          uri: lb://CLASS-SCHEDULER/
+        - id: class-scheduler-teacher
+          uri: lb://CLASS-SCHEDULER-TEACHER/
           predicates:
-            - Path=/api/scheduler/**
+            - Path=/api/scheduler-teacher/**
           filters:
             - name: CircuitBreaker
               args:
                 name: myCircuitBreaker
-                fallbackUri: /scheduler-fallback
+                fallbackUri: /scheduler-teacher-fallback
+        - id: class-scheduler-student
+          uri: lb://CLASS-SCHEDULER-STUDENT/
+          predicates:
+            - Path=/api/scheduler-student/**
+          filters:
+            - name: CircuitBreaker
+              args:
+                name: myCircuitBreaker
+                fallbackUri: /scheduler-student-fallback
 
 management:
   endpoints:
