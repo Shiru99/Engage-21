@@ -1,6 +1,6 @@
 SET DateStyle TO European;
 
-DROP TABLE IF EXISTS cc_courses;
+DROP TABLE IF EXISTS cc_courses, cc_courses_enrolled;
 
 CREATE TABLE cc_courses (
    id   INT     PRIMARY KEY     NOT NULL,
