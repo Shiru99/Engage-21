@@ -45,4 +45,13 @@ public class CourseService {
 
     }
 
+    public Course getCourseDetails(Course course) {
+        Optional<Course> newCourse = courseRepository.findByCoursecode(course.getCoursecode());
+
+        if(newCourse.isPresent()) 
+            return newCourse.get();
+
+        return null;
+    }
+
 }

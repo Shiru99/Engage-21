@@ -36,14 +36,18 @@ public class SchedulerController {
 
     @PostMapping(value ="/getCourses",consumes = "application/json", produces = "application/json")
     public List<Course> getCoursesByInstructor(@RequestBody Instructor Instructor) {
-        System.out.println(Instructor);
         return courseService.getAllCourseByInstructor(Instructor);
     }
-    
+
     @PostMapping(value ="/addCourse",consumes = "application/json", produces = "application/json")
     public CCResponse addCourse(@RequestBody Course course) {
-        System.out.println(course);
         return courseService.saveNewCourse(course);
+    }
+
+    @PostMapping(value ="/getCourseDetails",consumes = "application/json", produces = "application/json")
+    public Course getCourseDetails(@RequestBody Course course) {
+        System.out.println(course);
+        return courseService.getCourseDetails(course);
     }
 
     
