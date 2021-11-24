@@ -1,5 +1,7 @@
 package ms.engage.scheduler.Controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,12 +12,13 @@ import org.springframework.web.bind.annotation.RestController;
 
 import ms.engage.scheduler.Model.CCResponse;
 import ms.engage.scheduler.Model.Course;
+import ms.engage.scheduler.Model.Instructor;
 import ms.engage.scheduler.Service.CourseService;
 
 
 @RestController
 @RequestMapping("/api/scheduler-teacher")
-public class Scheduler {
+public class SchedulerController {
 
     @Value("${spring.application.name}")
     private String appName;
@@ -31,9 +34,17 @@ public class Scheduler {
     @Autowired
     CourseService courseService;
 
+    @PostMapping(value ="/getCourses",consumes = "application/json", produces = "application/json")
+    public List<Course> getCoursesByInstructor(@RequestBody Instructor Instructor) {
+        System.out.println(Instructor);
+        return courseService.getAllCourseByInstructor(Instructor);
+    }
+    
     @PostMapping(value ="/addCourse",consumes = "application/json", produces = "application/json")
-    public CCResponse signup(@RequestBody Course course) {
+    public CCResponse addCourse(@RequestBody Course course) {
         System.out.println(course);
         return courseService.saveNewCourse(course);
     }
+
+    
 }
