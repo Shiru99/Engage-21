@@ -10,9 +10,12 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import ms.engage.scheduler.Model.CCResponse;
 import ms.engage.scheduler.Model.Course;
+import ms.engage.scheduler.Model.EnrolledCourses;
 import ms.engage.scheduler.Model.Student;
 import ms.engage.scheduler.Service.CourseService;
+import ms.engage.scheduler.Service.EnrolledCoursesService;
 
 
 @RestController
@@ -36,5 +39,18 @@ public class SchedulerController {
     @PostMapping(value ="/getCourses",consumes = "application/json", produces = "application/json")
     public List<Course> getCoursesByInstructor(@RequestBody Student student) {
         return courseService.getAllCourseByStudent(student);
+    }
+
+    @Autowired
+    EnrolledCoursesService enrolledCoursesService;
+    
+    @PostMapping(value ="/enrollCourse",consumes = "application/json", produces = "application/json")
+    public CCResponse getEnrollCourse(@RequestBody EnrolledCourses courseToEnroll) {
+        return enrolledCoursesService.enrollTheCourse(courseToEnroll);
+    }
+
+    @PostMapping(value ="/enrolledStudents",consumes = "application/json", produces = "application/json")
+    public List<EnrolledCourses> getEnrolledStudents(@RequestBody EnrolledCourses course) {
+        return enrolledCoursesService.getListOfEnrolledStudents(course);
     }
 }
