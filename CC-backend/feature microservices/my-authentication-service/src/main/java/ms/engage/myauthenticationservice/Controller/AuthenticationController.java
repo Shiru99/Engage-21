@@ -34,11 +34,6 @@ public class AuthenticationController {
 
     @PostMapping(value ="/signup",consumes = "application/json", produces = "application/json")
     public CCResponse signup(@RequestBody CCSignupUser signupUser) {
-
-        for (CCUser ccUser : ccUserService.getAllUsers()) {
-            System.out.println(ccUser.toString());
-        }
-
         return ccUserService.saveNewUser(signupUser);
     }
 
