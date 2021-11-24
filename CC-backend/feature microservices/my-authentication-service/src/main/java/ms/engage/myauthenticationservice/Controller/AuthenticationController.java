@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import ms.engage.myauthenticationservice.Model.CCResponse;
 import ms.engage.myauthenticationservice.Model.CCSignupUser;
-import ms.engage.myauthenticationservice.Model.CCUser;
 import ms.engage.myauthenticationservice.Service.CCUserService;
 
 
