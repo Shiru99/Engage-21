@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import ms.engage.scheduler.Model.CCResponse;
 import ms.engage.scheduler.Model.Course;
+import ms.engage.scheduler.Service.CourseService;
 
 
 @RestController
@@ -27,11 +28,12 @@ public class Scheduler {
         return greetings+" from "+appName;
     }
 
-    // @Autowired
-    // CourseService courseService;
+    @Autowired
+    CourseService courseService;
 
-    // @PostMapping(value ="/addCourse",consumes = "application/json", produces = "application/json")
-    // public CCResponse signup(@RequestBody Course course) {
-    //     return courseService.saveNewCourse(course);
-    // }
+    @PostMapping(value ="/addCourse",consumes = "application/json", produces = "application/json")
+    public CCResponse signup(@RequestBody Course course) {
+        System.out.println(course);
+        return courseService.saveNewCourse(course);
+    }
 }

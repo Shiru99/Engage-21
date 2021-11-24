@@ -13,13 +13,19 @@ public class Course {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
-    private String course_name;
-    private String course_code;
+    private String coursename;
+    private String coursecode;
     private String description;
     private String instructor;
-    private String background_url;
+    private String backgroundurl;
 
-    public Course() { }
+    @Override
+    public String toString() {
+        return "Course [backgroundurl=" + backgroundurl + ", coursecode=" + coursecode + ", coursename=" + coursename  + ", description=" + description + ", id=" + id + ", instructor=" + instructor + "]";
+    }
+
+    public Course() {
+    }
 
     public int getId() {
         return id;
@@ -29,20 +35,20 @@ public class Course {
         this.id = id;
     }
 
-    public String getCourse_name() {
-        return course_name;
+    public String getCoursename() {
+        return coursename;
     }
 
-    public void setCourse_name(String course_name) {
-        this.course_name = course_name;
+    public void setCoursename(String coursename) {
+        this.coursename = coursename;
     }
 
-    public String getCourse_code() {
-        return course_code;
+    public String getCoursecode() {
+        return coursecode;
     }
 
-    public void setCourse_code(String course_code) {
-        this.course_code = course_code;
+    public void setCoursecode(String coursecode) {
+        this.coursecode = coursecode;
     }
 
     public String getDescription() {
@@ -61,15 +67,12 @@ public class Course {
         this.instructor = instructor;
     }
 
-    public String getBackground_url() {
-        return background_url;
+    public String getBackgroundurl() {
+        return backgroundurl;
     }
 
-    public void setBackground_url(String background_url) {
-        this.background_url = background_url;
+    public void setBackgroundurl(String backgroundurl) {
+        this.backgroundurl = backgroundurl;
     }
-
-    
-
 
 }

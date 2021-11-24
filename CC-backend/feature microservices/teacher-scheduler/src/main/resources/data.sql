@@ -1,5 +1,5 @@
 INSERT INTO
-    cc_courses (id, course_name, course_code, description, instructor, background_url)
+    cc_courses (id, coursename, coursecode, description, instructor, backgroundurl)
 VALUES
     (
         0,
