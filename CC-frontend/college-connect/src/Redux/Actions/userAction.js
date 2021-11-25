@@ -39,7 +39,7 @@ export const signup = (username, password, role) => {
     });
 
     try {
-      const data  = await axios.post(`${baseURL}/signup/`, {
+      const data  = await axios.post(`${baseURL}/login/`, {
         username,
         password,
         role,

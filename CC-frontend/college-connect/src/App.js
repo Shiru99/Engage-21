@@ -4,9 +4,7 @@ import { CssBaseline } from "@material-ui/core";
 import Header from "./components/Header";
 import CollegeActivities from "./components/CollegeActivities";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import Common from "./components/Common";
-import Teacher from "./components/Teacher/Teacher";
-import Student from "./components/Student/Student";
+
 const useStyles = makeStyles((theme) => ({
   root: {
     minHeight: "100vh",
