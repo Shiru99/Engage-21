@@ -1,4 +1,4 @@
-package ms.engage.helloworld.Controller;
+package ms.engage.classScheduler.Controller;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -7,13 +7,13 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 @RestController
-@RequestMapping("/api/hello-world")
-public class HelloWorld {
+@RequestMapping("/api/class-scheduler")
+public class ClassScheduler {
 
     @Value("${spring.application.name}")
     private String appName;
 
-    @Value("${hello.greetings}")
+    @Value("${class-scheduler.greetings}")
     private String greetings;
     
     @GetMapping("/")
