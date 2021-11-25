@@ -7,7 +7,6 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import ms.engage.scheduler.Model.CCResponse;
 import ms.engage.scheduler.Model.Course;
 import ms.engage.scheduler.Model.EnrolledCourses;
 import ms.engage.scheduler.Model.Student;
@@ -40,6 +39,15 @@ public class CourseService {
         }
 
         return courses;
+    }
+
+    public Course getCourseDetails(Course course) {
+        Optional<Course> newCourse = courseRepository.findByCoursecode(course.getCoursecode());
+
+        if(newCourse.isPresent()) 
+            return newCourse.get();
+
+        return null;
     }
 
 }

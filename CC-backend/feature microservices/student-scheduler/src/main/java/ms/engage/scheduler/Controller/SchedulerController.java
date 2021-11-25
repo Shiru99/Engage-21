@@ -41,6 +41,11 @@ public class SchedulerController {
         return courseService.getAllCourseByStudent(student);
     }
 
+    @PostMapping(value ="/getCourseDetails",consumes = "application/json", produces = "application/json")
+    public Course getCourseDetails(@RequestBody Course course) {
+        return courseService.getCourseDetails(course);
+    }
+
     @Autowired
     EnrolledCoursesService enrolledCoursesService;
     
@@ -53,4 +58,6 @@ public class SchedulerController {
     public List<EnrolledCourses> getEnrolledStudents(@RequestBody EnrolledCourses course) {
         return enrolledCoursesService.getListOfEnrolledStudents(course);
     }
+
+    
 }
