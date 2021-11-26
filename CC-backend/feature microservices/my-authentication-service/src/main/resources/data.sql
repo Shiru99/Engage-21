@@ -6,28 +6,28 @@ VALUES
         'John',
         '{bcrypt}$2a$10$jBxirFzCFwYVAskGcBMINuxjxJuD/gXIWqzkkCjtRhFpkzm9H1NPO',
         'true',
-        'Student'
+        'student'
     ),
     (
         1,
         'Jenny',
         '{bcrypt}$2a$10$jBxirFzCFwYVAskGcBMINuxjxJuD/gXIWqzkkCjtRhFpkzm9H1NPO',
         'true',
-        'Student'
+        'student'
     ),
     (
         2,
         'James',
         '{bcrypt}$2a$10$jBxirFzCFwYVAskGcBMINuxjxJuD/gXIWqzkkCjtRhFpkzm9H1NPO',
         'true',
-        'Student'
+        'teacher'
     ),
     (
         3,
         'temp',
         '1234',
         'true',
-        'Teacher'
+        'teacher'
     )
 ;
 
