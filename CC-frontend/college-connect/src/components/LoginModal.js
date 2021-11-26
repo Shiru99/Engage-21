@@ -21,7 +21,8 @@ import {
 import PropTypes from "prop-types";
 
 import { useDispatch, useSelector } from "react-redux";
-import { login } from "../Redux/Actions/userAction";
+import { login,signup } from "../Redux/Actions/userAction";
+import { useNavigate } from "react-router-dom";
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -61,6 +62,7 @@ function LoginModal({ isOpen }) {
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
   const [role, setRole] = useState("student");
+  const navigate = useNavigate();
 
   const dispatch = useDispatch();
 
@@ -68,13 +70,13 @@ function LoginModal({ isOpen }) {
     setValue(newValue);
   };
 
-  const handleLogin = (username, password, role) => {
-    dispatch(login(username, password, role));
+  const handleLogin = (username, password, role,navigate) => {
+    dispatch(login(username, password, role,navigate));
   };
 
 
-  const handleSignUp = (username, password, role) => {
-    dispatch(login(username, password, role));
+  const handleSignUp = (username, password, role, navigate) => {
+    dispatch(signup(username, password, role, navigate));
   };
   console.log(userName, password, role);
   return (
@@ -124,12 +126,12 @@ function LoginModal({ isOpen }) {
                   value={role}
                 >
                   <FormControlLabel
-                    value="Student"
+                    value="student"
                     control={<Radio />}
                     label="Student"
                   />
                   <FormControlLabel
-                    value="Teacher"
+                    value="teacher"
                     control={<Radio />}
                     label="Teacher"
                   />
@@ -139,22 +141,26 @@ function LoginModal({ isOpen }) {
               <Button
                 variant="contained"
                 color="primary"
-                onClick={() => handleLogin(userName, password, role)}
+                onClick={() => handleLogin(userName, password, role,navigate)}
               >
                 Login
               </Button>
             </TabPanel>
             <TabPanel value={value} index={1}>
-              <TextField
+            <TextField
                 label="Username"
                 variant="outlined"
+                value={userName}
                 style={{ marginTop: 10 }}
+                onChange={(e) => setUserName(e.target.value)}
               />
               <br />
               <TextField
                 label="Password"
                 variant="outlined"
                 style={{ marginTop: 10 }}
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
               />
               <br />
 
@@ -168,12 +174,12 @@ function LoginModal({ isOpen }) {
                   value={role}
                 >
                   <FormControlLabel
-                    value="Student"
+                    value="student"
                     control={<Radio />}
                     label="Student"
                   />
                   <FormControlLabel
-                    value="Teacher"
+                    value="teacher"
                     control={<Radio />}
                     label="Teacher"
                   />
@@ -184,7 +190,7 @@ function LoginModal({ isOpen }) {
               <Button
                 variant="contained"
                 color="secondary"
-                onClick={() => handleSignUp(userName, password, role)}
+                onClick={() => handleSignUp(userName, password, role, navigate)}
               >
                 Create Now{" "}
               </Button>

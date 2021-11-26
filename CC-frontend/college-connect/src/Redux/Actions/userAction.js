@@ -1,7 +1,7 @@
 import axios from "axios";
 import { baseURL } from "../../commonurl";
 
-export const login = (username, password, role) => {
+export const login = (username, password, role,navigate) => {
 
   console.log(username, password,role);
   return async (dispatch) => {
@@ -10,7 +10,7 @@ export const login = (username, password, role) => {
     });
 
     try {
-      const data  = await axios.post(`${baseURL}/login/`, {
+      const {data}  = await axios.post(`${baseURL}/login/`, {
         username,
         password,
         role,
@@ -23,6 +23,7 @@ export const login = (username, password, role) => {
           type: "LOGIN_SUCCESS",
           payload: data,
         });
+        navigate(`/acad/${role}`);
       }
     } catch (error) {
       console.log(JSON.stringify(error));
@@ -30,7 +31,7 @@ export const login = (username, password, role) => {
   };
 };
 
-export const signup = (username, password, role) => {
+export const signup = (username, password, role, navigate) => {
 
   console.log(username, password,role);
   return async (dispatch) => {
@@ -39,7 +40,7 @@ export const signup = (username, password, role) => {
     });
 
     try {
-      const data  = await axios.post(`${baseURL}/login/`, {
+      const {data}  = await axios.post(`${baseURL}/signup/`, {
         username,
         password,
         role,
@@ -52,6 +53,7 @@ export const signup = (username, password, role) => {
           type: "SIGNUP_SUCCESS",
           payload: data,
         });
+        navigate(`/acad/${role}`);
       }
     } catch (error) {
       console.log(JSON.stringify(error));

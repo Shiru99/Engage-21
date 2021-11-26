@@ -13,7 +13,7 @@ export const userLoginReducer = (state = initialState, action) => {
       return {
         ...state,
         loading: false,
-        profileObj: action.payload,
+        profileObj: action.payload.statusMessage,
       };
 
     case "SIGNUP_REQUEST":
